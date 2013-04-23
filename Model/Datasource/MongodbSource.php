@@ -279,7 +279,9 @@ class MongodbSource extends DboSource {
 		try{
 			$return = $this->_db
 				->selectCollection($table)
-				->batchInsert($data, array('safe' => true));
+				->batchInsert($data
+					//, array('safe' => true)
+					);
 		} catch (MongoException $e) {
 			$this->error = $e->getMessage();
 			trigger_error($this->error);
